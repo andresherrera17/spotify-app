@@ -8,7 +8,7 @@ import { NavbarModule } from 'src/app/components/shared/navbar/navbar.module';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
