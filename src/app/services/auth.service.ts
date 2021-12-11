@@ -11,20 +11,34 @@ export class AuthService {
   user: IUser = {} as IUser;
 
   constructor(public afAuth: AngularFireAuth) {
-    afAuth.authState.subscribe(user => {
+    this.getUser();
+  }
+
+  async getUser() {
+    return this.afAuth.authState.subscribe(async user => {
       console.log('estado del usuario', user);
       if (!user) {
         return;
       }
-
       this.user.uid = user.uid;
       this.user.nombre = user.displayName;
       this.user.email = user.email;
+      let token = await user.getIdToken();
+      sessionStorage.setItem('token', token);
     })
+  }
+
+  isLogged() {
+    return this.user ? true : false;
+  }
+
+  isEmptyObject(obj: any) {
+    return Object.getOwnPropertyNames(obj).length === 0;
   }
 
   logout() {
     this.user = {} as IUser;
+    sessionStorage.removeItem('token');
     return this.afAuth.signOut();
   }
 
