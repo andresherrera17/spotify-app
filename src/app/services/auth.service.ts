@@ -23,6 +23,11 @@ export class AuthService {
     })
   }
 
+  logout() {
+    this.user = {} as IUser;
+    return this.afAuth.signOut();
+  }
+
   login() {
     return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
