@@ -19,7 +19,7 @@ export class AuthService {
 
       this.user.uid = user.uid;
       this.user.nombre = user.displayName;
-      this.user.email = user.email
+      this.user.email = user.email;
     })
   }
 
@@ -39,13 +39,17 @@ export class AuthService {
       })
   }
 
+  // login() {
+  //   return this.afAuth.signInWithEmailAndPassword('andresherreran97@gmail.com', '123456')
+  //     .then(login => {
+  //       console.log(login)
+  //     })
+  //     .catch(error => {
+  //       console.log('errorLogin', error)
+  //     });
+  // }
+
   login() {
-    return this.afAuth.signInWithEmailAndPassword('andresherreran97@gmail.com', '123456')
-      .then(login => {
-        console.log(login)
-      })
-      .catch(error => {
-        console.log('errorLogin', error)
-      });
+    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 }
