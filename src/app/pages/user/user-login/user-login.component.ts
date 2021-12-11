@@ -20,4 +20,8 @@ export class UserLoginComponent implements OnInit {
     })
   }
 
+  register() {
+    this._serviceAuth.register();
+  }
+
 }

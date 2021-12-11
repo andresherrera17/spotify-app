@@ -28,8 +28,24 @@ export class AuthService {
     return this.afAuth.signOut();
   }
 
-  login() {
-    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  register() {
+    return this.afAuth.createUserWithEmailAndPassword('andresherreran97@gmail.com', '123456')
+      .then(user => {
+        console.log('se creo usuario', user);
+      }).catch(errorUser => {
+        console.log('errorUser', errorUser)
+      }).catch(error => {
+        console.log('errorUser2', error)
+      })
   }
 
+  login() {
+    return this.afAuth.signInWithEmailAndPassword('andresherreran97@gmail.com', '123456')
+      .then(login => {
+        console.log(login)
+      })
+      .catch(error => {
+        console.log('errorLogin', error)
+      });
+  }
 }
