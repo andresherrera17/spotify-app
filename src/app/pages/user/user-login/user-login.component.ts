@@ -16,6 +16,7 @@ export class UserLoginComponent implements OnInit {
 
   ingresar() {
     this._serviceAuth.login().then(() => {
+
       this.router.navigate(['home'])
     })
   }
