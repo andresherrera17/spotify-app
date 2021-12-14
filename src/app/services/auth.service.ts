@@ -1,6 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IUser } from '../interfaces/user.interface';
 
 @Injectable({
@@ -10,7 +13,7 @@ export class AuthService {
 
   user: IUser = {} as IUser;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private http: HttpClient) {
     this.getUser();
   }
 
@@ -23,9 +26,23 @@ export class AuthService {
       this.user.uid = user.uid;
       this.user.nombre = user.displayName;
       this.user.email = user.email;
-      let token = await user.getIdToken();
-      sessionStorage.setItem('token', token);
+      // let token = await user.getIdToken();
+      // sessionStorage.setItem('token', token);
     })
+  }
+
+  getTokenSpotify() {
+    let body = new URLSearchParams();
+    body.set('grant_type', environment.spotify.grant_type);
+    body.set('client_id', environment.spotify.client_id);
+    body.set('client_secret', environment.spotify.client_secret);
+
+    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+    return this.http.post(environment.spotify.urlToken, body.toString(), { headers })
+      .pipe(map((data: any) => data)).subscribe(data => {
+        sessionStorage.setItem('token', data?.access_token);
+      });
   }
 
   isLogged() {

@@ -16,7 +16,7 @@ export class UserLoginComponent implements OnInit {
 
   ingresar() {
     this._serviceAuth.login().then(() => {
-
+      this._serviceAuth.getTokenSpotify();
       this.router.navigate(['home'])
     })
   }

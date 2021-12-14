@@ -13,7 +13,14 @@ export const environment = {
     messagingSenderId: "343072713790",
     appId: "1:343072713790:web:c8d70c7301ff2675ea756f",
     measurementId: "G-H5JTG0R1Z8"
+  },
+  spotify: {
+    grant_type: 'client_credentials',
+    client_id: 'a3a961a713664aaaaa127a6a28d68d4c',
+    client_secret: 'a024b478355f422a8f91721f797b63f1',
+    urlToken: 'https://accounts.spotify.com/api/token'
   }
+
 };
 
 /*
