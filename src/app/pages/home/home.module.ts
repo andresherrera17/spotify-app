@@ -36,6 +36,7 @@ import { AuthInterceptor } from 'src/app/interceptores/auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }]
+    }
+  ]
 })
 export class HomeModule { }
