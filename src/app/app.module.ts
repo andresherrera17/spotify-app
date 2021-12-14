@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './interceptores/auth.interceptor';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { AuthService } from './services/auth.service';
+import { SpotifyService } from './services/spotify.service';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     HttpClientModule
   ],
   providers: [
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

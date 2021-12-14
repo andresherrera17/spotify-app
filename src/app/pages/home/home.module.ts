@@ -12,7 +12,8 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { TarjetasComponent } from './tarjetas/tarjetas.component';
 import { MainComponent } from './main/main.component';
 import { SpotifyService } from 'src/app/services/spotify.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'src/app/interceptores/auth.interceptor';
 
 
 @NgModule({
@@ -30,6 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarModule,
     UserModule,
   ],
-  providers: [AuthService, SpotifyService]
+  providers: [AuthService, SpotifyService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }]
 })
 export class HomeModule { }
