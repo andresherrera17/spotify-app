@@ -18,7 +18,8 @@ export const environment = {
     grant_type: 'client_credentials',
     client_id: 'a3a961a713664aaaaa127a6a28d68d4c',
     client_secret: 'a024b478355f422a8f91721f797b63f1',
-    urlToken: 'https://accounts.spotify.com/api/token'
+    urlToken: 'https://accounts.spotify.com/api/token',
+    url: 'https://api.spotify.com/v1/'
   }
 
 };

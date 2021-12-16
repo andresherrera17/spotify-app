@@ -35,3 +35,7 @@
 .card-group>.card {
   flex: auto !important;
 }
+
+.cursorPointer{
+  cursor: pointer;
+}

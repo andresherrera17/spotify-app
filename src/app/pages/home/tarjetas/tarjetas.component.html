@@ -1,6 +1,6 @@
 <div class="card-group m-5">
-  <div class="card col-md-4" *ngFor="let item of items">
-    <img [src]="item.images[0].url" class="card-img-top" alt="Card imagen">
+  <div (click)="verArtista(item)" class="card col-md-4 cursorPointer" *ngFor="let item of items">
+    <img [src]="item.images | noimage" class="card-img-top" alt="Card imagen">
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
       <p class="card-text">
