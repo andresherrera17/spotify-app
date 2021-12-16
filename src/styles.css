@@ -31,3 +31,7 @@
 .bi-arrow-repeat {
   font-size: 50px;
 }
+
+.card-group>.card {
+  flex: auto !important;
+}

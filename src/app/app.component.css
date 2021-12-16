@@ -1,0 +1,3 @@
+.card-group>.card {
+  flex: auto !important;
+}
