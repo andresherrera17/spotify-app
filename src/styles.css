@@ -26,3 +26,8 @@
 .fadeIn {
   animation-name: fadeIn;
 }
+
+
+.bi-arrow-repeat {
+  font-size: 50px;
+}

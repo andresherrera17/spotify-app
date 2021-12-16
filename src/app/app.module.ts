@@ -9,12 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AuthGuard } from './guards/auth.guard';
-import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingComponent,
   ],
   imports: [
     BrowserModule,

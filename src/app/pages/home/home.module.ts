@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { SpotifyService } from 'src/app/services/spotify.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/app/interceptores/auth.interceptor';
+import { LoadingModule } from 'src/app/components/shared/loading/loading.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AuthInterceptor } from 'src/app/interceptores/auth.interceptor';
     HttpClientModule,
     NavbarModule,
     UserModule,
+    LoadingModule
   ],
   providers: [AuthService, SpotifyService,
     {

@@ -11,9 +11,11 @@ export class MainComponent implements OnInit {
   nuevasCanciones: any[] = [];
   error: boolean;
   mensajeError: string = "";
+  loading: boolean;
 
   constructor(private _serviceSpotify: SpotifyService) {
     this.error = false;
+    this.loading = false;
   }
 
   ngOnInit(): void {
@@ -21,14 +23,18 @@ export class MainComponent implements OnInit {
   }
 
   getReleases() {
+    this.loading = true;
+    this.error = false;
     this._serviceSpotify.getNewReleases().subscribe(
       {
         next: (data) => {
           this.nuevasCanciones = data;
+          this.loading = false;
         },
         error: ({ error }) => {
           this.error = true;
           this.mensajeError = error?.error?.message;
+          this.loading = false;
         }
       }
     )
