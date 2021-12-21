@@ -50,3 +50,12 @@
   width: 70px;
   height: 70px;
 }
+
+/* 
+Styles Chat */
+
+.app-mensajes{
+  overflow-y: scroll;
+  height: 270px;
+  padding: 5px;
+}

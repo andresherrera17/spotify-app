@@ -16,6 +16,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/app/interceptores/auth.interceptor';
 import { LoadingModule } from 'src/app/components/shared/loading/loading.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { ChatComponent } from './chat/chat.component';
+import { ChatService } from 'src/app/services/chat.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,6 +28,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     BuscarComponent,
     TarjetasComponent,
     MainComponent,
+    ChatComponent,
   ],
   imports: [
     CommonModule,
@@ -34,9 +38,9 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     UserModule,
     LoadingModule,
     PipesModule,
-
+    FormsModule
   ],
-  providers: [AuthService, SpotifyService,
+  providers: [AuthService, SpotifyService, ChatService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
