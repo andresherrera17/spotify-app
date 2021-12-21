@@ -9,8 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AuthGuard } from './guards/auth.guard';
-import { NoimagePipe } from './pipes/noimage.pipe';
-
 @NgModule({
   declarations: [
     AppComponent,
