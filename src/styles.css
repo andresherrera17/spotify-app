@@ -39,3 +39,14 @@
 .cursorPointer{
   cursor: pointer;
 }
+
+.img-circle {
+  border-radius: 100%;
+  width: 150px;
+}
+
+
+.img-thumb {
+  width: 70px;
+  height: 70px;
+}
