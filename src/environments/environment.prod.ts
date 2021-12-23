@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   firebaseConfig: {
     apiKey: "AIzaSyBmYzo9BitkP9KzmA0Dt37KR_9kjoH4_RM",
-    authDomain: "angular-crud-7d11e.firebaseapp.com",
+    authDomain: "https://fierce-earth-30343.herokuapp.com/",
     databaseURL: "https://angular-crud-7d11e-default-rtdb.firebaseio.com",
     projectId: "angular-crud-7d11e",
     storageBucket: "angular-crud-7d11e.appspot.com",
